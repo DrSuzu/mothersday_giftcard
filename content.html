@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Special Message</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <div class="page-container">
+        <!-- Music Player -->
+        <div class="music-player">
+            <audio id="background-music" loop>
+                <source src="audio/押尾コータロー - MOTHER.mp3" type="audio/mpeg">
+            </audio>
+            <button id="play-music" class="music-control">
+                <i class="fas fa-music"></i>
+            </button>
+        </div>
+
+        <div class="container content-page">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">母亲节快乐！</h1>
+                    <p class="card-text">在这个温馨的节日里，愿我的祝福化作春风，轻拂您的心田；
+愿我的感恩化作花朵，盛开在您的笑颜。
+感谢您用无私的爱孕育我、用坚定的臂弯呵护我，用智慧的言语指引我。
+愿您在今天收获满怀的幸福与宠爱，愿未来的每一日都被温暖与欢笑环绕。
+
+母亲节快乐！
+爱您的孩子敬上</p>
+
+                    <!-- Photo Gallery -->
+                    <div class="photo-gallery">
+                        <h3>Our Memories</h3>
+                        <div class="gallery-container">
+                            <div class="gallery-row">
+                                <div class="gallery-item" data-index="0">
+                                    <img src="images/pic 2.jpg" alt="Memory 1" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="1">
+                                    <img src="images/pic 1.jpg" alt="Memory 2" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="2">
+                                    <img src="images/pic 4.jpg" alt="Memory 3" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="3">
+                                    <img src="images/pic 5.jpg" alt="Memory 4" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="4">
+                                    <img src="images/pic 6.jpg" alt="Memory 5" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="5">
+                                    <img src="images/pic 7.jpg" alt="Memory 6" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="6">
+                                    <img src="images/pic 8.jpg" alt="Memory 7" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="7">
+                                    <img src="images/pic 9.png" alt="Memory 8" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="8">
+                                    <img src="images/pic 10.jpg" alt="Memory 9" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="9">
+                                    <img src="images/pic 11.jpg" alt="Memory 10" class="img-thumbnail">
+                                </div>
+                                <div class="gallery-item" data-index="10">
+                                    <img src="images/pic 12.jpg" alt="Memory 11" class="img-thumbnail">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Buttons Container -->
+                    <div class="buttons-container">
+                        <!-- Share Button -->
+                        <button id="share-btn" class="btn btn-success">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+
+                        <!-- Close Button -->
+                        <button id="close-btn" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Close
+                        </button>
+                    </div>
+
+                    <!-- Custom Lightbox -->
+                    <div class="custom-lightbox">
+                        <div class="lightbox-content">
+                            <button class="lightbox-close">&times;</button>
+                            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="lightbox-image-container">
+                                <img src="" alt="" class="lightbox-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification for share -->
+    <div id="share-notification" class="notification">
+        Link copied to clipboard!
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

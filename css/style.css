@@ -1,0 +1,548 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Microsoft YaHei', '微软雅黑', 'Arial', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Flowers */
+.background-flower {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+    background-image: url('../images/background/carnation.png');
+}
+
+.background-flower:hover {
+    opacity: 0.15;
+}
+
+.background-flower:nth-child(1) {
+    top: 10%;
+    left: 15%;
+    transform: rotate(-25deg);
+}
+
+.background-flower:nth-child(2) {
+    top: 25%;
+    right: 10%;
+    transform: rotate(35deg);
+}
+
+.background-flower:nth-child(3) {
+    top: 45%;
+    left: 20%;
+    transform: rotate(-15deg);
+}
+
+.background-flower:nth-child(4) {
+    top: 65%;
+    right: 15%;
+    transform: rotate(45deg);
+}
+
+.background-flower:nth-child(5) {
+    top: 85%;
+    left: 10%;
+    transform: rotate(-30deg);
+}
+
+.background-flower:nth-child(6) {
+    top: 35%;
+    right: 5%;
+    transform: rotate(20deg);
+}
+
+.background-flower:nth-child(7) {
+    top: 75%;
+    left: 25%;
+    transform: rotate(-40deg);
+}
+
+.background-flower:nth-child(8) {
+    top: 55%;
+    right: 20%;
+    transform: rotate(15deg);
+}
+
+/* Page Container */
+.page-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-container.hidden {
+    opacity: 0;
+}
+
+/* Page Transition */
+.page-transition {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    z-index: 9999;
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.page-transition::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #ff9999;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transform-origin: top;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition.active {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 1;
+}
+
+.page-transition.active::before {
+    transform: rotateX(180deg);
+}
+
+/* Envelope Styles */
+.envelope-wrapper {
+    perspective: 1000px;
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -75px;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: #ff9999;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transform-origin: top;
+    transition: transform 0.6s;
+}
+
+.envelope-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ff6666;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.envelope-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.envelope-content p {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Content Page Styles */
+.content-page {
+    padding: 2rem;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.card-title {
+    color: #ff6666;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #666;
+    margin-bottom: 2rem;
+    white-space: pre-line;
+}
+
+/* Music Player */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-control {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ff6666;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    background: #ff4444;
+}
+
+.music-control.playing {
+    animation: rotate 3s linear infinite;
+}
+
+.music-control.playing i {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    margin: 2rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-gallery h3 {
+    text-align: center;
+    color: #ff6666;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1200px;
+}
+
+.gallery-item {
+    flex: 0 1 300px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.img-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Buttons Container */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn i {
+    font-size: 1.2rem;
+}
+
+/* Custom Lightbox */
+.custom-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.custom-lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lightbox-image-container {
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox-image.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Slide out to the left */
+.lightbox-image.slide-out-left {
+    transform: translate(-200%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+/* Slide out to the right */
+.lightbox-image.slide-out-right {
+    transform: translate(200%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+/* Slide in from the right */
+.lightbox-image.slide-in-right {
+    transform: translate(300%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+/* Slide in from the left */
+.lightbox-image.slide-in-left {
+    transform: translate(-300%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+/* Active states for sliding */
+.lightbox-image.slide-in-right.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.lightbox-image.slide-in-left.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Slide Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Share Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    display: none;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.notification.show {
+    display: block;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, 20px); }
+    20% { opacity: 1; transform: translate(-50%, 0); }
+    80% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -20px); }
+} 
